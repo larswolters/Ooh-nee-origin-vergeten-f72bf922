@@ -4,6 +4,11 @@ class MyLogger
 {
     protected $origin;
 
+    public function __construct($origin)
+    {
+        $this->origin = $origin;
+    }
+
     public function log($level, $message)
     {
         switch ($level) {
@@ -53,6 +58,5 @@ class MyLogger
     }
 }
 
-$logger = new MyLogger();
-$logger->setOrigin('TestClass');
+$logger = new MyLogger('TestClass');
 $logger->log('warning', 'Bla Bla');
